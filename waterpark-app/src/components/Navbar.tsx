@@ -60,17 +60,17 @@ export default function Navbar() {
   return (
     <>
       <nav 
-        className={`fixed top-0 left-0 w-full z-[100] transition-all duration-300 ${scrolled ? 'bg-[rgba(2,11,24,0.85)] backdrop-blur-[20px] border-b border-[rgba(0,212,255,0.1)] py-2' : 'bg-transparent py-4 border-b border-transparent'}`}
+        className={`fixed top-10 left-0 w-full z-[100] transition-all duration-300 ${scrolled ? 'bg-[var(--abyss)]/90 backdrop-blur-xl border-b border-[var(--mid)] py-2 shadow-sm' : 'bg-transparent py-4 border-b border-transparent'}`}
       >
         <div className="section-inner flex items-center justify-between">
           
           {/* Logo Area */}
           <a href="#" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-[var(--cyan)] bg-[var(--deep)] flex items-center justify-center transition-transform group-hover:scale-110 group-hover:shadow-[0_0_10px_var(--cyan)]">
+            <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-[var(--cyan)] bg-[var(--deep)] flex items-center justify-center transition-transform group-hover:scale-110">
               <TridentLogo width="24" height="24" />
             </div>
             <div className="flex flex-col">
-              <span className="display-font text-white text-lg md:text-xl tracking-wider group-hover:text-[var(--cyan)] transition-colors">ATLANTTIS</span>
+              <span className="display-font text-[var(--white)] text-lg md:text-xl tracking-wider group-hover:text-[var(--cyan)] transition-colors">ATLANTTIS</span>
               <span className="font-light text-[var(--aqua)] text-[0.6rem] md:text-xs tracking-[0.1em] uppercase">Bihta &middot; Patna &middot; Water Park</span>
             </div>
           </a>
@@ -81,7 +81,7 @@ export default function Navbar() {
               <a 
                 key={link.name} 
                 href={link.href} 
-                className={`heading-font text-sm uppercase tracking-wider transition-colors hover:text-[var(--cyan)] ${activeSection === link.href.substring(1) ? 'text-[var(--cyan)] font-semibold' : 'text-white'}`}
+                className={`heading-font text-sm uppercase tracking-wider transition-colors hover:text-[var(--cyan)] ${activeSection === link.href.substring(1) ? 'text-[var(--cyan)] font-semibold' : 'text-[var(--white)]'}`}
               >
                 {link.name}
               </a>
@@ -102,9 +102,9 @@ export default function Navbar() {
             onClick={toggleDrawer}
             aria-label="Toggle menu"
           >
-            <span className={`block w-6 h-[2px] bg-white transition-all duration-300 origin-center ${drawerOpen ? 'rotate-45 translate-y-[8px]' : ''}`}></span>
-            <span className={`block w-6 h-[2px] bg-white transition-all duration-300 ${drawerOpen ? 'opacity-0 translate-x-4' : ''}`}></span>
-            <span className={`block w-6 h-[2px] bg-white transition-all duration-300 origin-center ${drawerOpen ? '-rotate-45 -translate-y-[8px]' : ''}`}></span>
+            <span className={`block w-6 h-[2px] bg-[var(--white)] transition-all duration-300 origin-center ${drawerOpen ? 'rotate-45 translate-y-[8px]' : ''}`}></span>
+            <span className={`block w-6 h-[2px] bg-[var(--white)] transition-all duration-300 ${drawerOpen ? 'opacity-0 translate-x-4' : ''}`}></span>
+            <span className={`block w-6 h-[2px] bg-[var(--white)] transition-all duration-300 origin-center ${drawerOpen ? '-rotate-45 -translate-y-[8px]' : ''}`}></span>
           </button>
         </div>
       </nav>
@@ -124,7 +124,7 @@ export default function Navbar() {
             <a 
               key={link.name} 
               href={link.href} 
-              className={`heading-font text-xl border-b border-[rgba(255,255,255,0.05)] pb-4 transition-colors ${activeSection === link.href.substring(1) ? 'text-[var(--cyan)]' : 'text-white'}`}
+              className={`heading-font text-xl border-b border-[rgba(255,255,255,0.05)] pb-4 transition-colors ${activeSection === link.href.substring(1) ? 'text-[var(--cyan)]' : 'text-[var(--white)]'}`}
               onClick={closeDrawer}
             >
               {link.name}

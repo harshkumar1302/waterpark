@@ -62,15 +62,15 @@ export default function Experience() {
           {amenities.map((amenity, i) => (
             <div 
               key={i}
-              className={`rv bg-[var(--deep)] border border-[rgba(255,255,255,0.05)] rounded-2xl p-6 md:p-8 transition-all duration-300 hover:-translate-y-2 hover:border-[var(--aqua)] hover:shadow-[0_10px_30px_rgba(0,255,204,0.15)] flex flex-col gap-4 ${
+              className={`rv bg-[var(--deep)] border border-[var(--mid)] rounded-2xl p-6 md:p-8 transition-transform hover:-translate-y-1 hover:shadow-lg flex flex-col gap-4 ${
                 amenity.colSpan === 2 ? 'md:col-span-2' : 'col-span-1'
               }`}
               style={{ transitionDelay: `${i * 0.1}s` }}
             >
-              <div className="w-16 h-16 rounded-full bg-[rgba(0,212,255,0.05)] border border-[var(--cyan)] flex items-center justify-center text-3xl shadow-[0_0_15px_rgba(0,212,255,0.1)] mb-2">
+              <div className="w-14 h-14 rounded-full bg-[var(--abyss)] border border-[var(--mid)] flex items-center justify-center text-2xl mb-2 text-[var(--cyan)]">
                 {amenity.icon}
               </div>
-              <h3 className="heading-font text-xl md:text-2xl font-bold text-white tracking-wide">
+              <h3 className="heading-font text-xl md:text-2xl font-bold text-[var(--white)] tracking-wide">
                 {amenity.title}
               </h3>
               <p className="text-[var(--muted)] font-light leading-relaxed">

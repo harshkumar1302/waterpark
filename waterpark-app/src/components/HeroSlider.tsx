@@ -153,14 +153,14 @@ export default function HeroSlider() {
                   </span>
                   
                   <h2 
-                    className="display-font text-white font-bold leading-tight drop-shadow-lg mb-6"
-                    style={{ fontSize: 'clamp(2.8rem, 8vw, 6.5rem)', textShadow: `0 0 20px ${slide.colorAccent}40` }}
+                    className="display-font text-twhite font-black leading-tight mb-6"
+                    style={{ fontSize: 'clamp(2.8rem, 8vw, 6.5rem)' }}
                   >
                     {slide.headline}
                   </h2>
                   
                   {slide.subheading && (
-                    <h3 className="text-xl md:text-2xl font-light text-white opacity-90 mb-6 drop-shadow-md">
+                    <h3 className="text-xl md:text-2xl font-light text-twhite opacity-90 mb-6 drop-shadow-md">
                       {slide.subheading}
                     </h3>
                   )}
@@ -173,18 +173,18 @@ export default function HeroSlider() {
 
                   {slide.hasPricing && (
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10 w-full max-w-3xl border-y border-[rgba(255,209,102,0.2)] py-6">
-                      <div className="bg-[rgba(4,22,43,0.6)] backdrop-blur-md rounded-2xl p-4 border border-[rgba(255,255,255,0.05)] text-center">
+                      <div className="bg-[var(--deep)] border border-[var(--mid)] rounded-2xl p-4 text-center">
                         <p className="text-xs text-[var(--muted)] uppercase tracking-wider mb-1">Weekday</p>
-                        <p className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-[var(--muted)]">₹499</p>
+                        <p className="text-2xl font-bold text-[var(--white)]">₹499</p>
                       </div>
-                      <div className="bg-[rgba(255,209,102,0.1)] backdrop-blur-md rounded-2xl p-4 border-2 border-[var(--gold)] text-center shadow-[0_0_20px_rgba(255,209,102,0.2)] transform scale-105">
-                        <div className="absolute top-0 right-1/2 translate-x-1/2 -translate-y-1/2 bg-[var(--gold)] text-black text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">Hot</div>
+                      <div className="bg-[var(--deep)] rounded-2xl p-4 border-2 border-[var(--gold)] text-center relative">
+                        <div className="absolute top-0 right-1/2 translate-x-1/2 -translate-y-1/2 bg-[var(--gold)] text-black text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">Popular</div>
                         <p className="text-xs text-[var(--gold)] uppercase tracking-wider mb-1">Weekend & Holidays</p>
-                        <p className="text-2xl font-bold text-white drop-shadow-md">₹699</p>
+                        <p className="text-2xl font-bold text-[var(--white)]">₹699</p>
                       </div>
-                      <div className="bg-[rgba(4,22,43,0.6)] backdrop-blur-md rounded-2xl p-4 border border-[rgba(255,255,255,0.05)] text-center">
+                      <div className="bg-[var(--deep)] border border-[var(--mid)] rounded-2xl p-4 text-center">
                         <p className="text-xs text-[var(--muted)] uppercase tracking-wider mb-1">Group (20+)</p>
-                        <p className="text-xl mt-1 font-bold text-white">Call Us</p>
+                        <p className="text-xl mt-1 font-bold text-twhite">Call Us</p>
                       </div>
                     </div>
                   )}
@@ -210,7 +210,7 @@ export default function HeroSlider() {
 
       {/* Navigation Arrows */}
       <button 
-        className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 w-10 md:w-14 h-10 md:h-14 rounded-full bg-[rgba(2,11,24,0.4)] backdrop-blur-md border border-[var(--cyan)] flex items-center justify-center text-[var(--cyan)] hover:bg-[var(--cyan)] hover:text-black hover:shadow-[0_0_15px_var(--cyan)] transition-all z-20 focus:outline-none"
+        className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 w-10 md:w-14 h-10 md:h-14 rounded-full bg-[rgba(2,11,24,0.4)] backdrop-blur-md border border-[var(--cyan)] flex items-center justify-center text-[var(--cyan)] hover:bg-[var(--cyan)] hover:text-twhite transition-all z-20 focus:outline-none shadow-lg"
         onClick={prevSlide}
         aria-label="Previous slide"
       >
@@ -219,7 +219,7 @@ export default function HeroSlider() {
         </svg>
       </button>
       <button 
-        className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 w-10 md:w-14 h-10 md:h-14 rounded-full bg-[rgba(2,11,24,0.4)] backdrop-blur-md border border-[var(--cyan)] flex items-center justify-center text-[var(--cyan)] hover:bg-[var(--cyan)] hover:text-black hover:shadow-[0_0_15px_var(--cyan)] transition-all z-20 focus:outline-none"
+        className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 w-10 md:w-14 h-10 md:h-14 rounded-full bg-[rgba(2,11,24,0.4)] backdrop-blur-md border border-[var(--cyan)] flex items-center justify-center text-[var(--cyan)] hover:bg-[var(--cyan)] hover:text-twhite transition-all z-20 focus:outline-none shadow-lg"
         onClick={nextSlide}
         aria-label="Next slide"
       >
@@ -242,7 +242,7 @@ export default function HeroSlider() {
               onClick={() => setCurrentSlide(idx)}
               className={`h-2 md:h-2.5 rounded-full transition-all duration-300 ${
                 currentSlide === idx 
-                  ? 'w-8 bg-white shadow-[0_0_8px_white]' 
+                  ? 'w-8 bg-white shadow-md' 
                   : 'w-2 md:w-2.5 bg-white/30 hover:bg-white/50'
               }`}
             />
@@ -250,27 +250,16 @@ export default function HeroSlider() {
         </div>
 
         {/* Counter */}
-        <div className="text-white/60 font-mono tracking-widest text-sm" aria-live="polite" aria-atomic="true">
-          <span className="text-white font-bold">0{currentSlide + 1}</span> / 0{SLIDES.length}
+        <div className="text-twhite/60 font-mono tracking-widest text-sm" aria-live="polite" aria-atomic="true">
+          <span className="text-twhite font-bold">0{currentSlide + 1}</span> / 0{SLIDES.length}
         </div>
       </div>
 
-      {/* Auto-play Progress Bar across very bottom */}
-      <div className="absolute bottom-0 left-0 w-full h-[3px] bg-black/40 z-30">
-        <div 
-          key={currentSlide} // Key change forces re-render and re-animation
-          className="h-full bg-gradient-to-r from-[var(--cyan)] to-[var(--aqua)] shadow-[0_0_10px_var(--cyan)] transition-none"
-          style={{
-            animation: isHovered ? 'none' : 'ldBar 5s linear forwards',
-            width: isHovered ? '0%' : 'auto'
-          }}
-        />
-      </div>
 
       {/* SVG Wave Separator overlapping the section below */}
       <div className="absolute bottom-[-2px] left-0 w-full z-10 pointer-events-none w-[100vw] overflow-hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" className="w-full h-auto drop-shadow-lg" preserveAspectRatio="none">
-          <path fill="var(--deep)" fillOpacity="1" d="M0,64L80,80C160,96,320,128,480,122.7C640,117,800,75,960,64C1120,53,1280,75,1360,85.3L1440,96L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"></path>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" className="w-full h-auto translate-y-[1px]" preserveAspectRatio="none">
+          <path fill="var(--abyss)" fillOpacity="1" d="M0,64L80,80C160,96,320,128,480,122.7C640,117,800,75,960,64C1120,53,1280,75,1360,85.3L1440,96L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"></path>
         </svg>
       </div>
 

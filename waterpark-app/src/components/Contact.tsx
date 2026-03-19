@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import TridentLogo from './common/TridentLogo';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -11,29 +12,12 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Simple Validation
     if (!formData.name.trim() || !formData.phone.trim()) {
       alert("Please provide both Name and Phone Number.");
       return;
     }
-
-    if (formData.phone.replace(/\\D/g, '').length < 10) {
-      alert("Please provide a valid 10-digit phone number.");
-      return;
-    }
-
-    // Success State
     alert(`Thank you, ${formData.name}! We received your enquiry and will call you on ${formData.phone} shortly. See you at The Atlanttis!`);
-    
-    // Reset
-    setFormData({
-      name: '',
-      phone: '',
-      groupSize: '1-5',
-      visitDate: '',
-      message: ''
-    });
+    setFormData({ name: '', phone: '', groupSize: '1-5', visitDate: '', message: '' });
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -41,167 +25,142 @@ export default function Contact() {
   };
 
   return (
-    <section id="visit" className="section-padding bg-[var(--deep)] bg-gradient-to-b from-[var(--abyss)] to-[#04162b]">
-      <div className="section-inner grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-20 items-center">
-        
-        {/* Info Column */}
-        <div className="rv d1">
-           <span className="heading-font text-[var(--cyan)] tracking-[3px] uppercase text-sm font-semibold mb-3 block">Visit Us</span>
-           <h2 className="display-font text-4xl md:text-5xl text-white drop-shadow-md mb-8">
-             Plan Your <br className="hidden md:block" />
-             <span className="text-[var(--gold)]">Legendary Visit</span>
-           </h2>
-
-           {/* Timings */}
-           <div className="flex flex-col sm:flex-row gap-4 mb-8">
-             <div className="bg-[rgba(255,209,102,0.1)] border border-[var(--gold)] rounded-xl p-5 w-full sm:w-1/2 flex items-center gap-4">
-                <span className="text-3xl">🌅</span>
-                <div>
-                  <h4 className="font-bold text-white text-lg">8:00 AM</h4>
-                  <p className="text-[var(--gold)] text-xs uppercase tracking-wider font-semibold">Park Opens</p>
-                </div>
+    <section id="visit" className="relative pt-24 pb-0 bg-[var(--abyss)] overflow-hidden">
+      
+      {/* Background Decor */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[var(--cyan)] opacity-[0.03] blur-[150px] rounded-full pointer-events-none" />
+      
+      <div className="section-inner pb-32">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+          
+          {/* Info Column (5/12) */}
+          <div className="lg:col-span-5 rv d1">
+             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--dim)] border border-[var(--mid)] mb-6">
+                <span className="w-2 h-2 rounded-full bg-[var(--cyan)] animate-pulse" />
+                <span className="heading-font text-[var(--cyan)] tracking-[1px] uppercase text-[0.7rem] font-bold">Visit Us Today</span>
              </div>
-             <div className="bg-[var(--abyss)] border border-[rgba(255,255,255,0.1)] rounded-xl p-5 w-full sm:w-1/2 flex items-center gap-4">
-                <span className="text-3xl">🌇</span>
-                <div>
-                  <h4 className="font-bold text-white text-lg">5:00 PM</h4>
-                  <p className="text-[var(--muted)] text-xs uppercase tracking-wider font-semibold">Last Entry</p>
-                </div>
-             </div>
-           </div>
+             
+             <h2 className="display-font text-4xl md:text-5xl lg:text-6xl text-[var(--white)] mb-8 leading-tight">
+               Plan Your <br />
+               <span className="text-[var(--gold)]">Legendary Adventure</span>
+             </h2>
 
-           <p className="font-bold text-white tracking-widest uppercase mb-10 flex items-center gap-2">
-             <span className="w-2 h-2 rounded-full bg-[var(--aqua)] animate-pulse" />
-             Open 7 Days a week &middot; Always Fresh
-           </p>
-
-           {/* Contact Info */}
-           <ul className="mb-10 space-y-6">
-             <li className="flex gap-4 items-start">
-               <div className="w-12 h-12 rounded-full bg-[rgba(0,212,255,0.1)] flex items-center justify-center shrink-0 border border-[var(--cyan)]">
-                 <svg className="w-6 h-6 text-[var(--cyan)]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-               </div>
-               <div>
-                 <h5 className="font-heading text-xl font-bold text-white mb-1">Location</h5>
-                 <p className="text-[var(--muted)] font-light leading-relaxed">
-                   The Atlanttis Water Park<br />
-                   Danapur-Bihta Road<br />
-                   Bihta, Patna, Bihar — 801103
-                 </p>
-               </div>
-             </li>
-             <li className="flex gap-4 items-start">
-               <div className="w-12 h-12 rounded-full bg-[rgba(0,212,255,0.1)] flex items-center justify-center shrink-0 border border-[var(--cyan)]">
-                 <svg className="w-6 h-6 text-[var(--cyan)]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-               </div>
-               <div>
-                 <h5 className="font-heading text-xl font-bold text-white mb-1">Phone</h5>
-                 <a href="tel:+919599722391" className="text-[var(--cyan)] text-lg hover:underline decoration-dashed font-semibold transition-all">
-                   +91 95997 22391
-                 </a>
-               </div>
-             </li>
-           </ul>
-
-           <a 
-             href="https://maps.google.com/?q=The+Atlanttis+Water+Park+Bihta" 
-             target="_blank" 
-             rel="noopener noreferrer" 
-             className="btn-o gap-2 border-[var(--aqua)] text-[var(--aqua)] hover:bg-[rgba(0,255,204,0.1)] hover:shadow-[0_0_15px_rgba(0,255,204,0.3)]"
-           >
-             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" /></svg>
-             Open Google Maps
-           </a>
-        </div>
-
-        {/* Contact Form Column */}
-        <div className="rv d2 relative">
-           <div className="absolute inset-[-1px] rounded-[2rem] bg-gradient-to-b from-[var(--cyan)] to-transparent opacity-30 pointer-events-none" />
-           <div className="bg-[var(--deep)] rounded-[2rem] p-8 md:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] relative border border-[rgba(255,255,255,0.05)]">
-             <h3 className="heading-font text-2xl font-bold text-white mb-2">Send an Enquiry</h3>
-             <p className="text-[var(--muted)] text-sm mb-8 font-light">
-               Planning a group trip? Need to confirm dates? Drop us a line.
+             <p className="text-[var(--muted)] text-lg font-light leading-relaxed mb-10 max-w-md">
+               Dive into the myth. We are located on the Danapur-Bihta Road, just 45 minutes from Patna. Always open, always refreshing.
              </p>
 
-             <form onSubmit={handleSubmit} className="space-y-6">
-               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+             {/* Quick Stats/Hours Cards */}
+             <div className="space-y-4 mb-12">
+               <div className="flex items-center gap-5 p-4 rounded-2xl bg-[var(--deep)] border border-[var(--mid)] shadow-sm hover:border-[var(--cyan)] transition-colors group">
+                 <div className="w-12 h-12 rounded-xl bg-[rgba(255,209,102,0.1)] flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">🌅</div>
                  <div>
-                   <label htmlFor="name" className="block text-xs font-bold text-[var(--muted)] uppercase tracking-widest mb-2 ml-1">Full Name</label>
-                   <input 
-                     type="text" 
-                     id="name"
-                     name="name"
-                     value={formData.name}
-                     onChange={handleChange}
-                     className="w-full bg-[var(--deep)] border border-[rgba(255,255,255,0.1)] rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[var(--cyan)] transition-colors focus:shadow-[0_0_10px_rgba(0,212,255,0.2)]"
-                     placeholder="John Doe"
-                     required
-                   />
-                 </div>
-                 <div>
-                   <label htmlFor="phone" className="block text-xs font-bold text-[var(--muted)] uppercase tracking-widest mb-2 ml-1">Phone Number</label>
-                   <input 
-                     type="tel" 
-                     id="phone"
-                     name="phone"
-                     value={formData.phone}
-                     onChange={handleChange}
-                     className="w-full bg-[var(--deep)] border border-[rgba(255,255,255,0.1)] rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[var(--cyan)] transition-colors focus:shadow-[0_0_10px_rgba(0,212,255,0.2)]"
-                     placeholder="+91 xxxxx xxxxx"
-                     required
-                   />
+                   <p className="text-xs text-[var(--muted)] uppercase tracking-wider font-bold">Doors Open</p>
+                   <p className="text-xl font-bold text-[var(--white)]">8:00 AM Daily</p>
                  </div>
                </div>
-
-               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+               <div className="flex items-center gap-5 p-4 rounded-2xl bg-[var(--deep)] border border-[var(--mid)] shadow-sm hover:border-[var(--aqua)] transition-colors group">
+                 <div className="w-12 h-12 rounded-xl bg-[rgba(0,212,255,0.1)] flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">📍</div>
                  <div>
-                   <label htmlFor="groupSize" className="block text-xs font-bold text-[var(--muted)] uppercase tracking-widest mb-2 ml-1">Group Size</label>
-                   <select 
-                     id="groupSize"
-                     name="groupSize"
-                     value={formData.groupSize}
-                     onChange={handleChange}
-                     className="w-full bg-[var(--deep)] border border-[rgba(255,255,255,0.1)] rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[var(--cyan)] transition-colors appearance-none"
-                   >
-                     <option value="1-5">1 &ndash; 5 people</option>
-                     <option value="6-10">6 &ndash; 10 people</option>
-                     <option value="11-20">11 &ndash; 20 people</option>
-                     <option value="20+">20+ people (Group)</option>
-                   </select>
-                 </div>
-                 <div>
-                   <label htmlFor="visitDate" className="block text-xs font-bold text-[var(--muted)] uppercase tracking-widest mb-2 ml-1">Preferred Date</label>
-                   <input 
-                     type="date" 
-                     id="visitDate"
-                     name="visitDate"
-                     value={formData.visitDate}
-                     onChange={handleChange}
-                     className="w-full bg-[var(--deep)] border border-[rgba(255,255,255,0.1)] rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[var(--cyan)] transition-colors appearance-none"
-                   />
+                   <p className="text-xs text-[var(--muted)] uppercase tracking-wider font-bold">Location</p>
+                   <p className="text-lg font-medium text-[var(--white)]">Bihta, Patna 801103</p>
                  </div>
                </div>
+             </div>
 
-               <div>
-                 <label htmlFor="message" className="block text-xs font-bold text-[var(--muted)] uppercase tracking-widest mb-2 ml-1">Message</label>
-                 <textarea 
-                   id="message"
-                   name="message"
-                   value={formData.message}
-                   onChange={handleChange}
-                   rows={4}
-                   className="w-full bg-[var(--abyss)] border border-[rgba(255,255,255,0.1)] rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[var(--cyan)] transition-colors resize-none focus:shadow-[0_0_10px_rgba(0,212,255,0.2)]"
-                   placeholder="Any special requests or details?"
-                 />
-               </div>
+             <a 
+               href="https://maps.google.com/?q=The+Atlanttis+Water+Park+Bihta" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               className="btn-o gap-3 border-[var(--cyan)] text-[var(--cyan)] py-4 px-8"
+             >
+               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" /></svg>
+               View on Google Maps
+             </a>
+          </div>
 
-               <button type="submit" className="btn-p w-full justify-center py-4 text-lg">
-                 🌊 Send Enquiry
-               </button>
-             </form>
-           </div>
+          {/* Form Column (7/12) */}
+          <div className="lg:col-span-7 rv d2">
+            <div className="relative bg-[var(--deep)] rounded-[2.5rem] p-8 md:p-12 shadow-2xl border border-[var(--mid)] overflow-hidden">
+              {/* Subtle Trident watermark */}
+              <div className="absolute top-[-10%] right-[-10%] opacity-[0.03] pointer-events-none rotate-[15deg]">
+                <TridentLogo width="400" height="400" />
+              </div>
+
+              <div className="relative z-10">
+                <h3 className="heading-font text-3xl font-bold text-[var(--white)] mb-3">Send an Enquiry</h3>
+                <p className="text-[var(--muted)] text-base mb-10 font-light">
+                  Group bookings or a local day trip? Our team will call you within 2 hours.
+                </p>
+
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <label className="text-[0.65rem] font-black uppercase tracking-[2px] text-[var(--muted)] ml-1">Guest Name</label>
+                      <input 
+                        type="text" name="name" value={formData.name} onChange={handleChange} required
+                        className="w-full bg-[var(--abyss)] border border-[var(--mid)] rounded-xl px-5 py-4 text-[var(--white)] focus:outline-none focus:border-[var(--cyan)] transition-all"
+                        placeholder="John Doe"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-[0.65rem] font-black uppercase tracking-[2px] text-[var(--muted)] ml-1">Phone Number</label>
+                      <input 
+                        type="tel" name="phone" value={formData.phone} onChange={handleChange} required
+                        className="w-full bg-[var(--abyss)] border border-[var(--mid)] rounded-xl px-5 py-4 text-[var(--white)] focus:outline-none focus:border-[var(--cyan)] transition-all"
+                        placeholder="+91 xxxxx xxxxx"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <label className="text-[0.65rem] font-black uppercase tracking-[2px] text-[var(--muted)] ml-1">Group Size</label>
+                      <select 
+                        name="groupSize" value={formData.groupSize} onChange={handleChange}
+                        className="w-full bg-[var(--abyss)] border border-[var(--mid)] rounded-xl px-5 py-4 text-[var(--white)] focus:outline-none focus:border-[var(--cyan)] appearance-none cursor-pointer"
+                      >
+                        <option value="1-5">1 &ndash; 5 Guests</option>
+                        <option value="6-10">6 &ndash; 10 Guests</option>
+                        <option value="11-20">11 &ndash; 20 Guests</option>
+                        <option value="20+">20+ Corporate/School</option>
+                      </select>
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-[0.65rem] font-black uppercase tracking-[2px] text-[var(--muted)] ml-1">Preferred Date</label>
+                      <input 
+                        type="date" name="visitDate" value={formData.visitDate} onChange={handleChange}
+                        className="w-full bg-[var(--abyss)] border border-[var(--mid)] rounded-xl px-5 py-4 text-[var(--white)] focus:outline-none focus:border-[var(--cyan)] cursor-pointer"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <label className="text-[0.65rem] font-black uppercase tracking-[2px] text-[var(--muted)] ml-1">Your Message (Optional)</label>
+                    <textarea 
+                      name="message" value={formData.message} onChange={handleChange} rows={3}
+                      className="w-full bg-[var(--abyss)] border border-[var(--mid)] rounded-xl px-5 py-4 text-[var(--white)] focus:outline-none focus:border-[var(--cyan)] resize-none"
+                      placeholder="Special requests or questions?"
+                    />
+                  </div>
+
+                  <button type="submit" className="btn-p w-full py-5 text-lg shadow-[0_10px_30px_rgba(2,132,199,0.3)] hover:shadow-[0_15px_40px_rgba(2,132,199,0.4)]">
+                    🌊 Confirm Enquiry
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
+
+      {/* The Visual "Gap" Transition - SVG Curve */}
+      <div className="absolute bottom-0 left-0 w-full h-32 z-10 pointer-events-none">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" className="w-full h-full fill-[#020b18] translate-y-[1px] scale-y-[1.1]">
+          <path d="M0,96L60,85.3C120,75,240,53,360,48C480,43,600,53,720,69.3C840,85,960,107,1080,101.3C1200,96,1320,64,1380,48L1440,32L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z"></path>
+        </svg>
+      </div>
+
     </section>
   );
 }

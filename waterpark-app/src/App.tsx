@@ -9,6 +9,8 @@ import Experience from './components/Experience';
 import Pricing from './components/Pricing';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import TopBar from './components/TopBar';
+import ChatBot from './components/ChatBot';
 import useScrollReveal from './hooks/useScrollReveal';
 
 function App() {
@@ -24,6 +26,7 @@ function App() {
       {/* We keep the main app container hidden while the loader is active to prevent scroll jump.
           Wait, loader already locks body scroll. We can just render the app normally behind the fixed loader. */}
       
+      <TopBar />
       <Navbar />
       <main>
         <HeroSlider />
@@ -35,6 +38,7 @@ function App() {
         <Contact />
       </main>
       <Footer />
+      <ChatBot />
     </div>
   );
 }

@@ -30,12 +30,12 @@ export default function About() {
             </div>
             
             {/* Large Trident */}
-            <div className="relative z-10 animate-[tridentFloat_4s_ease-in-out_infinite] drop-shadow-[0_0_20px_rgba(0,212,255,0.5)]">
-              <TridentLogo width="240" height="240" withGlow={true} />
+            <div className="relative z-10 animate-[tridentFloat_4s_ease-in-out_infinite] drop-shadow-sm">
+              <TridentLogo width="240" height="240" withGlow={false} />
             </div>
 
             {/* Badge */}
-            <div className="absolute -bottom-4 right-0 md:bottom-4 md:-right-8 bg-gradient-to-r from-[var(--cyan)] to-[#0088cc] px-6 py-3 rounded-2xl shadow-[0_10px_30px_rgba(0,212,255,0.4)] border border-white/20 transform rotate-[-5deg] hover:rotate-0 transition-transform z-20">
+            <div className="absolute -bottom-4 right-0 md:bottom-4 md:-right-8 bg-gradient-to-r from-[var(--cyan)] to-[#0088cc] px-6 py-3 rounded-2xl shadow-lg border border-white/20 transform rotate-[-5deg] hover:rotate-0 transition-transform z-20">
               <span className="block text-white font-bold text-sm md:text-base leading-tight">#1 Themed Park</span>
               <span className="block text-[var(--abyss)] font-bold text-xs uppercase tracking-wider">in Bihar</span>
             </div>
@@ -45,13 +45,13 @@ export default function About() {
         {/* Text Right */}
         <div className="order-1 lg:order-2">
           <span className="rv d1 block heading-font text-[var(--cyan)] tracking-[3px] uppercase text-sm font-semibold mb-3">Our Story</span>
-          <h2 className="rv d2 display-font text-4xl md:text-5xl lg:text-6xl text-white mb-6 drop-shadow-md leading-tight">
+          <h2 className="rv d2 display-font text-4xl md:text-5xl lg:text-6xl text-[var(--white)] mb-6 drop-shadow-sm leading-tight">
             Where Ancient Atlantis <br />
             <span className="text-[var(--gold)]">Meets Modern Thrills</span>
           </h2>
           
           <p className="rv d3 text-[var(--muted)] text-base md:text-lg mb-4 font-light leading-relaxed">
-            Welcome to <strong className="text-white font-semibold">The Atlanttis Water Park</strong>, Bihta's premier aquatic destination. Inspired by the sunken legend of Atlantis, we offer an immersive adventure combining ancient mythology with world-class water attractions.
+            Welcome to <strong className="text-[var(--white)] font-semibold">The Atlanttis Water Park</strong>, Bihta's premier aquatic destination. Inspired by the sunken legend of Atlantis, we offer an immersive adventure combining ancient mythology with world-class water attractions.
           </p>
           <p className="rv d3 text-[var(--muted)] text-base md:text-lg mb-8 font-light leading-relaxed">
             Whether you are looking to conquer extreme slides, relax in the lazy river, or create family memories in our vast interactive wave pool, The Atlanttis is your gateway to endless aquatic joy. Always open, always fresh.
@@ -61,7 +61,7 @@ export default function About() {
             {features.map((feat, i) => (
               <div key={i} className="flex items-center gap-3 bg-[var(--deep)] border border-[rgba(255,255,255,0.05)] rounded-full px-4 py-2 shadow-sm hover:border-[var(--aqua)] transition-colors hover:bg-[rgba(0,255,204,0.05)]">
                 <span className="text-xl">{feat.icon}</span>
-                <span className="text-sm md:text-base font-medium text-white/90">{feat.text}</span>
+                <span className="text-sm md:text-base font-medium text-[var(--white)]">{feat.text}</span>
               </div>
             ))}
           </div>

@@ -8,8 +8,8 @@
   --color-aqua: var(--aqua);
   --color-gold: var(--gold);
   --color-coral: var(--coral);
-  --color-white: var(--white);
-  --color-black: var(--black);
+  --color-twhite: var(--white);
+  --color-tblack: var(--black);
   --color-muted: var(--muted);
   --color-dim: var(--dim);
 
@@ -74,34 +74,34 @@
 
 :root {
   /* LIGHT MODE (DEFAULT) */
-  --abyss: #f4f7fb;     /* Light canvas */
-  --deep: #ffffff;      /* Card bg */
-  --mid: #e2e8f0;       /* Subdued */
-  --cyan: #0077b6;      /* Slightly darker cyan for contrast */
-  --aqua: #0096c7;      /* Slightly darker aqua */
-  --gold: #d48e00;      /* Darker gold for white bg */
-  --coral: #e76f51;     /* Contrast coral */
-  --white: #020b18;     /* Inverted: text-white becomes dark */
-  --black: #ffffff;     /* Inverted: text-black becomes white */
-  --muted: rgba(2, 11, 24, 0.65);
-  --dim: rgba(2, 11, 24, 0.1);
+  --abyss: #f8fafc;     /* Clean slate-50 background */
+  --deep: #ffffff;      /* Pure white cards */
+  --mid: #e2e8f0;       /* Subtle borders */
+  --cyan: #0284c7;      /* Professional blue */
+  --aqua: #0ea5e9;      /* Water blue */
+  --gold: #d97706;      /* Professional amber */
+  --coral: #ea580c;     /* Professional orange */
+  --white: #0f172a;     /* Slate 900 for dark text */
+  --black: #ffffff;     /* inverted back */
+  --muted: #64748b;     /* Slate 500 */
+  --dim: rgba(15, 23, 42, 0.05);
   --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .dark {
   /* DARK MODE */
-  --abyss: #020b18;
-  --deep: #04162b;
-  --mid: #083352;
-  --cyan: #00d4ff;
-  --aqua: #00ffcc;
-  --gold: #ffd166;
-  --coral: #ff6b6b;
-  --white: #f0f8ff;     /* Normal white text */
-  --black: #000000;     /* Normal black */
-  --muted: rgba(240, 248, 255, 0.6);
-  --dim: rgba(240, 248, 255, 0.3);
+  --abyss: #0f172a;     /* Slate-900 background */
+  --deep: #1e293b;      /* Slate-800 cards */
+  --mid: #334155;       /* Slate-700 borders */
+  --cyan: #38bdf8;      /* Sky-400 */
+  --aqua: #7dd3fc;      /* Sky-300 */
+  --gold: #fbbf24;      /* Amber-400 */
+  --coral: #fb923c;     /* Orange-400 */
+  --white: #f8fafc;     /* Slate-50 text */
+  --black: #020617;     /* Slate-950 */
+  --muted: #94a3b8;     /* Slate-400 */
+  --dim: rgba(248, 250, 252, 0.05);
 }
 
 body {
@@ -153,7 +153,7 @@ h1, h2, h3, h4, .display-font {
 
 /* Buttons */
 .btn-p {
-  background: linear-gradient(135deg, #006380, #00a8cc);
+  background: var(--cyan);
   color: #ffffff; /* Explicitly keep white for solid buttons */
   padding: 12px 28px;
   border-radius: 9999px;
@@ -169,7 +169,7 @@ h1, h2, h3, h4, .display-font {
   gap: 8px;
 }
 .btn-p:hover {
-  box-shadow: 0 0 20px rgba(0, 212, 255, 0.6);
+  box-shadow: 0 4px 14px 0 rgba(2, 132, 199, 0.39);
   transform: translateY(-2px);
   color: #ffffff;
 }
@@ -189,8 +189,30 @@ h1, h2, h3, h4, .display-font {
   gap: 8px;
 }
 .btn-o:hover {
-  background: rgba(0, 212, 255, 0.1);
-  box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+  background: rgba(2, 132, 199, 0.1);
+  box-shadow: 0 4px 14px 0 rgba(2, 132, 199, 0.15);
   transform: translateY(-2px);
   color: var(--cyan);
+}
+
+/* Animated Underline Utility */
+.link-underline {
+  position: relative;
+  text-decoration: none;
+}
+.link-underline::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--cyan);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.link-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
