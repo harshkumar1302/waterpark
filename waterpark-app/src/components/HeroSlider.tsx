@@ -43,7 +43,7 @@ const SLIDES = [
     bgGradient: 'radial-gradient(circle at 50% 50%, rgba(255,209,102,0.15), var(--abyss))',
     hasPricing: true,
     primaryCTA: { label: 'Book Now', href: 'tel:+919599722391', gold: true },
-    secondaryCTA: { label: 'Get Directions', href: 'https://maps.google.com/?q=The+Atlanttis+Water+Park+Bihta' }
+    secondaryCTA: { label: 'Get Directions', href: 'https://maps.app.goo.gl/81ELpKj9xq7TukvD6' }
   }
 ];
 

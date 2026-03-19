@@ -68,7 +68,7 @@ export default function Contact() {
              </div>
 
              <a 
-               href="https://maps.google.com/?q=The+Atlanttis+Water+Park+Bihta" 
+               href="https://maps.app.goo.gl/81ELpKj9xq7TukvD6" 
                target="_blank" 
                rel="noopener noreferrer" 
                className="btn-o gap-3 border-[var(--cyan)] text-[var(--cyan)] py-4 px-8"

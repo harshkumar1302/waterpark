@@ -15,10 +15,10 @@ export default function TopBar() {
             <span className="text-xs">📞</span>
             <span className="text-[0.65rem] md:text-xs font-bold tracking-wider">+91 95997 22391</span>
           </a>
-          <div className="hidden sm:flex items-center gap-2 opacity-80 decoration-slate-500">
+          <a href="https://maps.app.goo.gl/81ELpKj9xq7TukvD6" target="_blank" rel="noopener noreferrer" className="hidden sm:flex items-center gap-2 opacity-80 hover:text-[var(--cyan)] transition-colors">
             <span className="text-xs">📍</span>
             <span className="text-[0.65rem] md:text-xs font-medium tracking-wide">Bihta Patna, 801103</span>
-          </div>
+          </a>
         </div>
       </div>
     </div>
